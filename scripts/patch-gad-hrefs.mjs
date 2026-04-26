@@ -21,6 +21,11 @@ for (const f of files) {
 	);
 	s = s.replaceAll('href="https://gad-studios.webflow.io/imprint"', 'href="imprint.html"');
 	s = s.replaceAll('href="https://gad-studios.webflow.io/"', 'href="index.html"');
+	// TCS-Seite blockt oft Iframe-Loads; in Next-Iframe-Wrapper Top-Level öffnen
+	s = s.replaceAll(
+		'href="https://tcs.gad-studios.com/" class="tab-link w-inline-block"><div class="text-block-2">Creative Shift</div>',
+		'href="https://tcs.gad-studios.com/" target="_top" rel="noopener noreferrer" class="tab-link w-inline-block"><div class="text-block-2">Creative Shift</div>',
+	);
 	// Kein separater "Sounds"-Eintrag in der Nav
 	s = s.replaceAll(
 		'<div class="navigation-wrapper div-block-23"><div><a href="https://www.gad-studios.com/sounds" class="tab-link w-inline-block"><div class="text-block-2">Sounds</div><div class="hover-line"><div class="hover-line-fill"></div></div></a></div></div>',
