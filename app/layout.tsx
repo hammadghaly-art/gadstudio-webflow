@@ -3,6 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.gad-studios.com"),
+	icons: {
+		icon: "/gad-favicon.png",
+		apple: "/gad-favicon.png",
+	},
 	title: "Gad Studios | Cinematography · Photography · Sound",
 	description:
 		"Gad Studios – Kreatives Studio von Ahmed Gad & Melissa Ghaly. Film, Fotografie und Sound.",

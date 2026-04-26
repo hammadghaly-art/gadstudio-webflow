@@ -10,6 +10,15 @@ for (const f of files) {
 	const p = path.join(dir, f);
 	let s = fs.readFileSync(p, "utf8");
 	const before = s;
+	// Favicons: Webflow-CDN → /gad-favicon.png (sonst Tab/Preview = Webflow-Bild)
+	s = s.replace(
+		/<link href="https:\/\/cdn\.prod\.website-files\.com\/[^"]+" rel="shortcut icon"[^>]*>/g,
+		'<link href="/gad-favicon.png" rel="icon" type="image/png">',
+	);
+	s = s.replace(
+		/<link href="https:\/\/cdn\.prod\.website-files\.com\/[^"]+" rel="apple-touch-icon"[^>]*>/g,
+		'<link href="/gad-favicon.png" rel="apple-touch-icon">',
+	);
 	s = s.replaceAll('href="https://www.gad-studios.com/"', 'href="index.html"');
 	// Cookie-Banner: Link zur Datenschutz-Seite (statische Kopie)
 	s = s.replaceAll('href=\\"/datenschutz\\"', 'href=\\"privacy-policy.html\\"');
