@@ -19,5 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className="gad-body">
 				{children}
 			</body>
-		</html>	);
+		</html>
+	);
 }
