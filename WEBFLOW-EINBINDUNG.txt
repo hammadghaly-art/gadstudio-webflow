@@ -1,0 +1,47 @@
+================================================================================
+GADSTUDIO — Cookie-Banner (eigenes Webflow-Projekt)
+================================================================================
+Dieser Ordner gehört NICHT zu amz-huntecom. Alles hier ist nur für Gadstudio in Webflow.
+
+DATEI FÜR WEBFLOW
+-----------------
+  cookiebanner-gadstudio-v14.js   → gleiche Version/Logik wie Huntecom Webflow v14
+                                    → im Gadstudio-Projekt als Asset hochladen
+
+WO IST DIE WEBFLOW-SITE-ID? (24 Zeichen, z. B. 687a38e09b9d1263e66d363b)
+--------------------------------------------------------------------------------
+1. Browser: https://webflow.com/dashboard öffnen und einloggen.
+2. Gadstudio-Site anklicken (Projektliste), NICHT unbedingt den Designer.
+3. In der Adresszeile steht meist:
+     https://webflow.com/dashboard/sites/HIER_STEHT_DIE_SITE_ID/…
+   Die ID ist genau 24 Zeichen (Zahlen und Kleinbuchstaben a–f).
+
+   Alternativ: Workspace → Site auswählen → „Site settings“ / Übersicht;
+   manche Accounts zeigen die ID auch unter „Apps & Integrations“ / API.
+
+WAS DU IN WEBFLOW KLICKEN MUSST (normaler Weg — empfohlen)
+----------------------------------------------------------
+1. Gadstudio-Projekt im Dashboard öffnen.
+2. Links „Assets“ (oder Medienbibliothek) → „Upload“ → cookiebanner-gadstudio-v14.js hochladen.
+3. Auf die hochgeladene Datei klicken → „Copy link“ / URL kopieren (muss https://… sein).
+4. Links „Site settings“ (Zahnrad) öffnen.
+5. Tab „Custom code“.
+6. Feld „Footer code“: GENAU EINE Zeile einfügen (URL durch deine Asset-URL ersetzen):
+
+   <script src="HIER_DEINE_KOPIERTE_ASSET_URL" defer></script>
+
+7. „Save“ → Site veröffentlichen („Publish“).
+
+OPTIONAL (MCP / Cursor): Nur wenn du den Banner per API als viele kleine Skripte einspielen willst.
+----------------------------------------------------------------------------------------------------
+Ordner gadstudio-webflow/ enthält split-*.mjs und mcp-scripts-payload-gadstudio.json.
+Vorher in build-mcp-payload-gadstudio.mjs die echte Site-ID eintragen oder Umgebungsvariable
+GADSTUDIO_WEBFLOW_SITE_ID setzen, dann node split-… && node verify-… && node build-…
+
+DATENSCHUTZ-LINKS IM SKRIPT
+----------------------------
+Standard: /datenschutz und /datenschutz#cookies
+Wenn Gadstudio andere Slugs nutzt: in cookiebanner-gadstudio-v14.js die Variablen
+URL_PRIVACY und URL_COOKIES anpassen, Datei neu hochladen, erneut veröffentlichen.
+
+================================================================================

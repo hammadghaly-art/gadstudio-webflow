@@ -1,0 +1,42 @@
+================================================================================
+WARUM DAS MCP HIER GERADE NICHTS „SELBST“ EINSPICHT
+================================================================================
+Der Agent hat Webflow-MCP aufgerufen:
+
+  • list_sites  →  liefert: sites = []  (leer)
+  • get_site (beliebige ID) / add_inline_site_script  →  404 „site cannot be found“
+
+Heißt: Die OAuth-Verbindung in Cursor ist mit einem Webflow-Konto verbunden, das
+entweder KEINE Sites sieht (falsches Konto / fehlende Rechte) oder nicht zu dem
+Workspace gehört, in dem Gadstudio liegt.
+
+Ohne sichtbare Site-ID kann die Data API keine Skripte registrieren — das ist
+keine Repo-Frage, sondern Konto/Token in Cursor.
+
+================================================================================
+EINZIGER SCHRITT, DEN DU MACHEN MUSST (damit der Agent „alles“ per MCP kann)
+================================================================================
+1. Cursor öffnen → Settings (Zahnrad) → Features → MCP  (oder „Tools & MCP“).
+2. Webflow / „plugin-webflow-webflow“ → Verbindung trennen / Reconnect / Neu autorisieren.
+3. Im Browser-Login GENAU das Webflow-Konto wählen, unter dem das Gadstudio-
+   Projekt im Dashboard sichtbar ist (dasselbe wie webflow.com → deine Sites).
+4. Alle angefragten Berechtigungen für die Webflow-App zulassen.
+5. Danach im Chat schreiben: „MCP neu verbunden“ — dann kann der Agent erneut
+   list_sites aufrufen. Sobald Gadstudio in der Liste ist, kann er die 16
+   Footer-Skripte aus mcp-scripts-payload-gadstudio.json einspielen (Site-ID
+   steht dann in der Antwort).
+
+Optional: Gadstudio im Webflow-Designer öffnen und die MCP Bridge App aktiv
+lassen (laut Webflow-Doku für Designer-Tools; list_sites ist Data API, hilft
+trotzdem oft beim „richtigen“ Kontext).
+
+================================================================================
+DATEIEN FÜR DEN AGENTEN, WENN list_sites WIEDER FUNKTIONIERT
+================================================================================
+  mcp-scripts-payload-gadstudio.json  — enthält alle add_inline_site_script-
+  Aktionen (Version 14.x). Vorher in build-mcp-payload-gadstudio.mjs die
+  Site-ID setzen oder Umgebungsvariable GADSTUDIO_WEBFLOW_SITE_ID und
+  node split-cookie-gadstudio-inline.mjs && node verify-chunks-gadstudio.mjs
+  && node build-mcp-payload-gadstudio.mjs ausführen.
+
+================================================================================

@@ -1,0 +1,32 @@
+html.gad-html {
+	height: 100%;
+}
+
+body.gad-body {
+	margin: 0;
+	min-height: 100dvh;
+	height: 100dvh;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	background: #000;
+	color: #fff;
+}
+
+/* Fills the viewport: fixed-only iframe collapses the body in some embeds */
+.gad-iframe-root {
+	position: relative;
+	width: 100%;
+	min-height: 100dvh;
+	height: 100dvh;
+	overflow: hidden;
+	background: #000;
+}
+
+.gad-iframe {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
