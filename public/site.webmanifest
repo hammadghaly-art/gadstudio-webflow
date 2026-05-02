@@ -1,0 +1,21 @@
+{
+  "name": "Gad Studios — Cinematography · Photography · Sound",
+  "short_name": "Gad Studios",
+  "description": "Creative studio by Ahmed Gad & Melissa Ghaly. Film, photography, sound design.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en",
+  "categories": ["entertainment", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/gad-favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
