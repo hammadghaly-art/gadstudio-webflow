@@ -4,9 +4,10 @@ import "./globals.css";
 
 const siteUrl = "https://www.gad-studios.com";
 
-const SEO_TITLE = "Gad Studios | Cinematography · Photography · Sound";
+const SEO_TITLE =
+	"Gad Studios | UGC · Video · Cinematography · Photography · Sound";
 const SEO_DESCRIPTION =
-	"Gad Studios – Creative studio by Ahmed Gad & Melissa Ghaly. Cinematic film, photography, and sound design for premium brands and visual storytelling.";
+	"Gad Studios — Ahmed Gad & Melissa Ghaly: UGC and branded content, cinematic film, photography, and sound for creators and premium brands. Dubai-based creative studio.";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
@@ -20,6 +21,10 @@ export const metadata: Metadata = {
 		"Gad Studios",
 		"Ahmed Gad",
 		"Melissa Ghaly",
+		"UGC production",
+		"UGC ads",
+		"branded content",
+		"video content creation",
 		"Cinematography",
 		"Photography",
 		"Sound Design",
@@ -51,14 +56,14 @@ export const metadata: Metadata = {
 				url: "/opengraph-image.png",
 				width: 1200,
 				height: 630,
-				alt: "Gad Studios — Cinematography, Photography, Sound",
+				alt: "Gad Studios — UGC, video, cinematography, photography, sound",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: SEO_TITLE,
-		description: "Visual storytelling, Film & Photography.",
+		description: "UGC, branded content, cinematography, photography, and sound — premium visual storytelling.",
 		images: ["/twitter-image.png"],
 	},
 	robots: {
@@ -107,7 +112,7 @@ const localBusinessSchema = {
 	image: `${siteUrl}/opengraph-image.png`,
 	priceRange: "$$$",
 	description:
-		"Premium cinematography, photography, and sound design studio specialized in brand films and visual storytelling.",
+		"Creative studio for UGC, branded content, cinematography, photography, and sound design — brand films and visual storytelling.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

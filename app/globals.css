@@ -12,7 +12,7 @@ body.gad-body {
 	color: #fff;
 }
 
-/* Fills the viewport: fixed-only iframe collapses the body in some embeds */
+/* Fills the viewport: host page stacks optional SEO strip + full-bleed iframe */
 .gad-iframe-root {
 	position: relative;
 	width: 100%;
@@ -20,6 +20,17 @@ body.gad-body {
 	height: 100dvh;
 	overflow: hidden;
 	background: #000;
+}
+
+.gad-iframe-root--stacked {
+	display: flex;
+	flex-direction: column;
+}
+
+.gad-iframe-slot {
+	position: relative;
+	flex: 1;
+	min-height: 0;
 }
 
 .gad-iframe {
